@@ -6,6 +6,7 @@ __pycache__/
 #folders
 data/
 gcp-data/dummy/
+credentials/
 
 # Distribution / packaging
 .Python
