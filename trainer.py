@@ -155,7 +155,7 @@ if __name__=='__main__':
     parser.add_argument("--bucket-name", type=str, help="Bucket name on google cloud storage",
                         default= "tools-data-bucket")
     parser.add_argument("--batch_size", type=int, help="Batch size used by model",
-                        default=8)
+                        default=2)
 
     args = parser.parse_args()
 
