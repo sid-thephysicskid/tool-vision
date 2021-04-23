@@ -1,0 +1,9 @@
+gcloud ai-platform jobs submit training $JOB_NAME \
+  --scale-tier BASIC \
+  --region $REGION \
+  --master-image-uri $IMAGE_URI \
+  -- \
+  -- batch_size=8
+
+#epochs=5 \
+#model-dir="gs://$BUCKET_NAME/$MODEL_DIR"
