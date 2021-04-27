@@ -5,9 +5,9 @@ __pycache__/
 
 #folders
 data/
-gcp-data/dummy/
+data_dummy/
 credentials/
-venv/
+
 
 # Distribution / packaging
 .Python

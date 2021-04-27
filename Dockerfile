@@ -1,5 +1,6 @@
-FROM tensorflow/tensorflow:latest-gpu
+#FROM tensorflow/tensorflow:latest
 
+FROM tensorflow/tensorflow:latest-gpu
 
 # Installs necessary dependencies.
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -35,6 +36,8 @@ RUN echo '[GoogleCompute]\nservice_account = default' > /etc/boto.cfg
 WORKDIR /usr/src/app
 
 COPY . .
+
+#RUN apt-get update
 
 RUN pip3 install -r /usr/src/app/requirements.txt
 
