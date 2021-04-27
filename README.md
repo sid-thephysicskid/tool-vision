@@ -1,5 +1,5 @@
 # tool-vision
-With worldwide labor shortage in construction industry, there's a multi-billion dollar opportunity in US market alone to standardize and automate all the low level tasks with the help of robotics. Since most of robotics is only limited by software and ML, this app is a computer vision MVP to classify pictures of the 8 most commonly used handyman tools, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
+With mmssive labor shortage in construction industry, there's a multi-billion dollar opportunity in US market alone to standardize and automate all the low level tasks with the help of robotics. This app is a computer vision MVP to classify pictures of the 8 most commonly used handyman tools, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
 
 The first version (current) is image classification.
 The second iteration will be multiple object detection and localization.
