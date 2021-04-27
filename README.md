@@ -3,7 +3,7 @@ An app to classify pictures of the 8 most commonly used handyman tools, namely :
 
 # Summary
 
-The entire data ingestion and training pipeline is built locally. Then the data is pushed to Google Cloud Storage, a dockerized container is pushed to Google Container Registry, and Google's AI platform is leveraged to train the model. config.yaml helps with testing different values of the hyperparameters and the best model is saved in the cloud storage after the training is complete.
+The entire data ingestion and training pipeline is built locally. Then the data is pushed to Google Cloud Storage, a dockerized container is pushed to Google Container Registry, and Google's AI platform is leveraged to train the model. config.yaml helps with running multiple parallel trials while testing different values of the hyperparameters. The best model is saved in the cloud storage after the training is complete.
 For more detaiils on how to train custom containers on Google Cloud Platform, please refer to this guide: https://cloud.google.com/ai-platform/training/docs/custom-containers-training
 
 
@@ -24,3 +24,19 @@ In my experience, a simple script to scrape images from websites only works (gen
 3) Use an extension like Fatkun batch image downloader (https://chrome.google.com/webstore/detail/fatkun-batch-download-ima/nnjjahlikiabnchcpehcpkdeckfgnohf?hl=en) and ripme: https://github.com/RipMeApp/ripme
 
 Since I wanted the images to come from a variety of sources, including Reddit, to source real life pics taken by everyday people. I went with approach #3.
+
+
+# Data pipeline
+
+handler.py creates the pipeline for feeding the data to the model by downloading it from the Cloud Storage. A storage client is created that uses the credentials file which can be sourced from the service account under IAM roles. Please be sure to add the folder in .gitignore so you don't accidentally share that publicly.
+
+To split data into training, validation, and training, you can write a custom function (which is what I started with), but there's also a python package called 'split_folders' that can be implemented in one line. More details: https://pypi.org/project/split-folders/
+
+
+# Training
+
+trainer.py trains the MobileNetV2 model. 
+Currently only the top layer is removed and a dense layer with dropout is added to finally output to the appropriate number of classes (8, in this case). Potential improvements in accuracy and F1 scores can be seen if we train more layers,those tests haven't been performed.
+2 callbacks, namely EarlyStopping and ModelCheckpoint are employed. ReducingLR on plateau is perhaps on utility as well for further optimization.
+
+.. to be continued
