@@ -1,9 +1,13 @@
 # tool-vision
-An app to classify pictures of the 8 most commonly used handyman tools, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
+With worldwide labor shortage in construction industry, there's a multi-billion dollar opportunity in US market alone to standardize and automate all the low level tasks with the help of robotics. Since most of robotics is only limited by software and ML, this app is a computer vision MVP to classify pictures of the 8 most commonly used handyman tools, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
+
+The first version (current) is image classification.
+The second iteration will be multiple object detection and localization.
+
 
 # Summary
 
-The entire data ingestion and training pipeline is built locally. Then the data is pushed to Google Cloud Storage, a dockerized container is pushed to Google Container Registry, and Google's AI platform is leveraged to train the model. config.yaml helps with running multiple parallel trials while testing different values of the hyperparameters. The best model is saved in the cloud storage after the training is complete.
+The data ingestion and training pipeline is built locally. Then the input data is pushed to buckets in Cloud Storage, a dockerized container is pushed to Google Container Registry, and Google's AI platform is leveraged to train the model. config.yaml helps with running multiple parallel trials while testing different values of the hyperparameters. The best model is saved in the cloud storage after the training is complete.
 For more detaiils on how to train custom containers on Google Cloud Platform, please refer to this guide: https://cloud.google.com/ai-platform/training/docs/custom-containers-training
 
 
