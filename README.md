@@ -1,7 +1,8 @@
 # tool-vision
 An app to classify pictures of the 8 most commonly used handyman tools, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
 
-#Summary
+# Summary
+
 The entire data ingestion and training pipeline is built locally. Then the data is pushed to Google Cloud Storage, a dockerized container is pushed to Google Container Registry, and Google's AI platform is leveraged to train the model. config.yaml helps with testing different values of the hyperparameters and the best model is saved in the cloud storage after the training is complete.
 For more detaiils on how to train custom containers on Google Cloud Platform, please refer to this guide: https://cloud.google.com/ai-platform/training/docs/custom-containers-training
 
@@ -10,7 +11,7 @@ All the dependencies are saved in requirements.txt and can be installed using 'p
 
 The frontend app development is underway.
 
-#Data Collection
+# Data Collection
 The raw dataset used for this project can be downloaded directly from here: https://drive.google.com/file/d/1VH3jqREFB3rFrlbmhkwH4hIyNBGR1byX/view?usp=sharing
 
 There are 2149 images more or less evenly distributed among the 8 classes, and sourced directly from reddit, amazon and lowe's product pages.
@@ -22,9 +23,4 @@ In my experience, a simple script to scrape images from websites only works (gen
 
 3) Use an extension like Fatkun batch image downloader (https://chrome.google.com/webstore/detail/fatkun-batch-download-ima/nnjjahlikiabnchcpehcpkdeckfgnohf?hl=en) and ripme: https://github.com/RipMeApp/ripme
 
-Since I wanted the images to come from a variety of sources, including Reddit so I can source real life pics taken by everyday people. I went with approach 3.
-
-
-
-
-
+Since I wanted the images to come from a variety of sources, including Reddit, to source real life pics taken by everyday people. I went with approach #3.
