@@ -1,12 +1,12 @@
 # tool-vision
-With massive labor shortage in construction industry, there's a multi-billion dollar opportunity in US market alone to standardize and automate all the low level tasks involved in construction proecess. This app is a basic MVP that classifies 8 most commonly used handyman tools from pictures, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
+With massive labor shortage in construction industry, there's a massive opportunity in US market alone to standardize and automate all the low level tasks involved in construction proecess. This app is a basic MVP for a potential robot that can use machine vision to classify different tools. For right now I have included 8 most common ones, namely : flashlight, hammer, handsaw, level, pliers, screwdriver, tape measure, toolbox
 
-The first version (current) is image classification. (using CNNs)
-The second iteration will be multiple object detection and localization.(YOLO perhaps?)
+The first version (current) is simple image classification using Keras/Tensorflow. (using CNNs)
+The second iteration will be multiple object detection and localization.(YOLO most likely)
 
 # Summary
-
-The data ingestion and training pipeline is built locally. Then the input data is pushed to buckets in Cloud Storage, a dockerized container is pushed to Google Container Registry, and Google's AI platform is leveraged to train the model. config.yaml helps with running multiple parallel trials while testing different values of the hyperparameters. The best model is saved in the cloud storage after the training is complete.
+The model training and deployment is performed on Google's Cloud Platform.
+The data ingestion and training pipeline is dockerized and pushed to Google Container Registry. The input data is goes in Cloud Storage buckets and Google's AI platform is leveraged to train the model. config.yaml helps with running multiple parallel trials while testing different values of the hyperparameters. The best model is saved in the cloud storage after the training is complete.
 For more detaiils on how to train custom containers on Google Cloud Platform, please refer to this guide: https://cloud.google.com/ai-platform/training/docs/custom-containers-training
 
 
@@ -18,7 +18,7 @@ The frontend app development is underway.
 The raw dataset used for this project can be downloaded directly from here: https://drive.google.com/file/d/1VH3jqREFB3rFrlbmhkwH4hIyNBGR1byX/view?usp=sharing
 
 There are 2149 images more or less evenly distributed among the 8 classes, and sourced directly from reddit, amazon and lowe's product pages.
-In my experience, a simple script to scrape images from websites only works (generally) for <100 images at a time. From amazon to google, they all block requests after a threshold. To source more images, there are 3 solutions (amongst others I am sure):
+In my experience, a simple script to scrape images from websites only works (generally) for <100 images at a time. Often websites block requests after a threshold. To source more images, there are 3 solutions (amongst others I am sure):
 
 1) Use a vpn and send requests from different IP addresses. 
 
